@@ -10,19 +10,28 @@ import { Joueur } from '../joueur';
   styleUrls: ['./joueur-detail.component.css']
 })
 export class JoueurDetailComponent implements OnInit {
-  joueur: Joueur = {
-    id: 123,
-    name: 'test',
-    statut: 'OK'
-  }
+  joueur = null;
   
   constructor(private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
-    
+    this.initUser();
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  initUser(): void{
+    const id = this.route.snapshot.paramMap.get('id');
+    if(localStorage.getItem('liste-joueurs') != null){
+      var rawData = localStorage.getItem('liste-joueurs');
+      var data = JSON.parse(rawData);
+      data.forEach(element => {
+        if(element.id == id){
+          this.joueur = element;
+        }
+      });
+    }
   }
 }

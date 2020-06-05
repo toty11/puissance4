@@ -17,10 +17,11 @@
 </div>
 <div class="row justify-content-md-center mt-5 ">
     <div class="col-md-auto">
-        <h2 class="text-light">Liste des joueurs</h2>
+        <h1 class="mb-5 text-light">Bienvenu {{user.pseudo}}</h1>
+        <h3 class="text-light">Liste des joueurs</h3>
         <ul class="list-group list-group-flush">
             <li *ngFor="let joueur of joueurs" class="list-group-item bg-dark">
-                <a routerLink="/detail/{{joueur.id}}">
+                <a routerLink="/jouer/{{joueur.id}}">
                     {{joueur.name}}
                 </a>
             </li>
@@ -40,15 +41,16 @@
           </div>
         <div class="modal-body">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="pseudo">
+                <input type="text" class="form-control" placeholder="pseudo" [formControl]="pseudo">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="identifiant">
+                <input type="text" class="form-control" placeholder="identifiant" [formControl]="identifiant">
             </div>
+            <p>{{info_ajout_joueur}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-          <button type="button" class="btn btn-primary">Enregistrer</button>
+          <button type="button" class="btn btn-primary" (click)="ajouterJoueur()">Enregistrer</button>
         </div>
       </div>
     </div>
