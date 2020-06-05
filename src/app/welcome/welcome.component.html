@@ -1,0 +1,19 @@
+<div class="">
+    <div *ngIf="userCheck; else elseBlock">
+        <div class="welcome">
+            <h1 class="text-light">Bienvenu {{user.pseudo}}</h1>
+            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="play()">Play</button>
+            
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <div class="welcome">
+            <h1 class="text-light">Bonjour saisissez votre pseudo</h1>
+            <input type="text" [formControl]="pseudo">
+            <button type="button" class="btn btn-primary" (click)="inscription()">Ok</button>
+            <p>{{message}}</p>
+        </div>
+    </ng-template>
+</div>
+
+

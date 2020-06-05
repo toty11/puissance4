@@ -1,0 +1,55 @@
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+            <h1 class="text-white">Puissance 4</h1>
+            <nav class="nav nav-pills justify-content-start">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Ajouter un joueur
+                </button>
+            </nav>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div>
+<div class="row justify-content-md-center mt-5 ">
+    <div class="col-md-auto">
+        <h2 class="text-light">Liste des joueurs</h2>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let joueur of joueurs" class="list-group-item bg-dark">
+                <a routerLink="/detail/{{joueur.id}}">
+                    {{joueur.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Ajouter un joueur</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="pseudo">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="identifiant">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
