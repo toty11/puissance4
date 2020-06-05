@@ -1,0 +1,17 @@
+<div class="text-light welcome">
+    <h1 class="text-light">Connexion</h1>
+    <div class="form-group">
+        <select class="custom-select w-75 mb-2">
+            <option>Sélectionner un compte</option>
+            <option *ngFor="let user of users" (click)="connexionUserSelect(user)">{{user.pseudo}}</option>
+        </select>
+    </div>
+    <p>Ou</p>
+    <div class="form-group">
+        <input type="text" class="form-control" [formControl]="pseudo" placeholder="pseudo">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" [formControl]="identifiant" placeholder="identifiant">
+    </div>
+    <button class="btn btn-primary w-25" (click)="connexionUser()">Connexion</button> 
+</div>

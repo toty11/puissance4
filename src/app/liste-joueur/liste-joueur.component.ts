@@ -38,10 +38,9 @@ export class ListeJoueurComponent implements OnInit {
   }
 
   initUser(){
-    var user = {
-      identifiant: localStorage.getItem('identifiant'),
-      pseudo: localStorage.getItem('pseudo') 
-    }
+    var users = JSON.parse(localStorage.getItem('users'));
+    var user = {};
+    users.forEach((u) => {if(u.currentUser == "1"){ user = u;}});
     return user;
   }
 

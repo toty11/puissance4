@@ -13,14 +13,14 @@ import { MessageService } from '../message.service';
 
 export class WelcomeComponent implements OnInit {
   pseudo = new FormControl('');
-  user = null;
   userCheck = true;
+  users = [];
   message = "";
-  constructor(private messageService: MessageService, private location: Location, private router: Router) {}
 
+  constructor(private messageService: MessageService, private location: Location, private router: Router) {}
+  
   ngOnInit(): void {
-    this.user = (localStorage.getItem('identifiant') != null) ? this.initUser() : null;
-    if(this.user == null){ this.userCheck = false;}
+    this.resetConnexion();
   }
 
   inscription(): void{
@@ -31,25 +31,37 @@ export class WelcomeComponent implements OnInit {
     .then((response) => response.json())
     .then(function(data) {
       if(data.etat == 'OK'){
-        self.message = "Votre compte à été créé.";
-        localStorage.setItem('identifiant',data.identifiant);
-        localStorage.setItem('pseudo',data.pseudo);
-        self.router.navigate(["/joueurs"]);
+        this.ajouterJoueur(data);
       }else{
         self.message = "Ce pseudo est déjà utilisé.";
       }
     });
   }
 
-  initUser(){
-    var user = {
-      identifiant: localStorage.getItem('identifiant'),
-      pseudo: localStorage.getItem('pseudo') 
+  resetConnexion(): void{
+    if(localStorage.getItem('users') != null){
+      var users = JSON.parse(localStorage.getItem('users'));
+      users.forEach((user) => {user.currentUser = '0';});
+      localStorage.setItem('users', JSON.stringify(users));
     }
-    return user;
   }
 
-  play(){
-    this.router.navigate(["/joueurs"]);
+  //Ajoute à la variable localstorage players le nouveau joueur si il n'est pas présent
+  ajouterJoueur(data): void{
+    var newUser = {id: data.identifiant, name: data.pseudo, currentUser: '1'};
+    var userNotFound = true;
+    var users = JSON.parse(localStorage.getItem('users'));
+    users.forEach((j) => { if(j.id == newUser.id){
+      userNotFound = false;
+    }});
+
+    if(userNotFound){
+      users.push(newUser);
+      localStorage.setItem('users',JSON.stringify(users));
+      this.router.navigate(["/joueurs"]);
+      this.message = "Votre compte à été créé.";
+    }else{
+      this.message = "Vous avez déjà ajoutez ce compte.";
+    }
   }
 }

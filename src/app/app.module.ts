@@ -10,6 +10,7 @@ import { ListeJoueurComponent } from './liste-joueur/liste-joueur.component';
 import { JoueurDetailComponent } from './joueur-detail/joueur-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,8 @@ import { MessagesComponent } from './messages/messages.component';
     WelcomeComponent,
     ListeJoueurComponent,
     JoueurDetailComponent,
-    MessagesComponent
-    
+    MessagesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

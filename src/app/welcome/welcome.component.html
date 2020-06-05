@@ -1,19 +1,14 @@
-<div class="">
-    <div *ngIf="userCheck; else elseBlock">
-        <div class="welcome">
-            <h1 class="text-light">Bienvenu {{user.pseudo}}</h1>
-            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="play()">Play</button>
-            <select></select>
-        </div>
+<div class="welcome">
+    <h1 class="text-light">Bonjour veuillez créer un compte</h1>
+    <div class="form-group">
+        <input type="text" class="form-control" [formControl]="pseudo" placeholder="pseudo">
     </div>
-    <ng-template #elseBlock>
-        <div class="welcome">
-            <h1 class="text-light">Bonjour saisissez votre pseudo</h1>
-            <input type="text" [formControl]="pseudo">
-            <button type="button" class="btn btn-primary" (click)="inscription()">Ok</button>
-            <p>{{message}}</p>
-        </div>
-    </ng-template>
+    <button type="button" class="btn btn-primary w-25" (click)="inscription()">Ok</button>
+    <p>{{message}}</p>
 </div>
+<div class="fixed-top ml-3 mt-3">
+    <a routerLink="/login">Se connecter</a>
+</div>
+
 
 
