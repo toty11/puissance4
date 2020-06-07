@@ -31,7 +31,8 @@ export class WelcomeComponent implements OnInit {
     .then((response) => response.json())
     .then(function(data) {
       if(data.etat == 'OK'){
-        this.ajouterJoueur(data);
+        console.log(data);
+        self.ajouterJoueur(data);
       }else{
         self.message = "Ce pseudo est déjà utilisé.";
       }
@@ -48,18 +49,18 @@ export class WelcomeComponent implements OnInit {
 
   //Ajoute à la variable localstorage players le nouveau joueur si il n'est pas présent
   ajouterJoueur(data): void{
-    var newUser = {id: data.identifiant, name: data.pseudo, currentUser: '1'};
+    var newUser = {id: data.identifiant, pseudo: data.pseudo, currentUser: '1'};
     var userNotFound = true;
     var users = JSON.parse(localStorage.getItem('users'));
-    users.forEach((j) => { if(j.id == newUser.id){
+    users.forEach((user) => { if(user.id == newUser.id){
       userNotFound = false;
     }});
 
     if(userNotFound){
       users.push(newUser);
       localStorage.setItem('users',JSON.stringify(users));
-      this.router.navigate(["/joueurs"]);
       this.message = "Votre compte à été créé.";
+      this.router.navigate(["/jouer"]);
     }else{
       this.message = "Vous avez déjà ajoutez ce compte.";
     }

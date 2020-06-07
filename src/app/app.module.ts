@@ -11,6 +11,7 @@ import { JoueurDetailComponent } from './joueur-detail/joueur-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
 import { LoginComponent } from './login/login.component';
+import { PlateauComponent } from './plateau/plateau.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     ListeJoueurComponent,
     JoueurDetailComponent,
     MessagesComponent,
-    LoginComponent
+    LoginComponent,
+    PlateauComponent
   ],
   imports: [
     BrowserModule,

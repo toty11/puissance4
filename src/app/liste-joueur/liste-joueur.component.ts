@@ -37,6 +37,7 @@ export class ListeJoueurComponent implements OnInit {
     }
   }
 
+  //Initialise la variable user avec l'user connecté
   initUser(){
     var users = JSON.parse(localStorage.getItem('users'));
     var user = {};
