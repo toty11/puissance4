@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     }
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
-    this.router.navigate(["/joueurs"]);
+    this.router.navigate(["/jouer"]);
   }
 
   connexionUserSelect(user): void{
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       }
     });
     localStorage.setItem('users', JSON.stringify(users));
-    this.router.navigate(["/joueurs"]);
+    this.router.navigate(["/jouer"]);
   }
 
   initUsers(): void{

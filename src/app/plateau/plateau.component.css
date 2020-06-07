@@ -1,0 +1,25 @@
+.welcome{
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.plateau {
+    display: grid;
+    width: 500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+    
+    align-items: center;
+}
+
+.jaune {
+    background-color: yellow;
+}
+
+.rouge {
+    background-color: red;
+}
+

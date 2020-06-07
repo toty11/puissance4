@@ -1,4 +1,12 @@
-<div *ngIf="joueur">
-    <h2 class="text-light">{{joueur.name}}</h2>
+<button (click)="goBack()" class="btn btn-warning">Retour</button>
+<div class="text-light welcome">
+    <h1>Test</h1>
+    <p>Participer {{participer_info}}</p>
+    <button (click)="participer()">Participer</button>
+    <p>Statut {{statut_info}}</p>
+    <button (click)="statut()">Statut</button>
+    <p>Jouer {{jouer_info}}</p>
+    <button (click)="jouer()">Jouer</button><br>
+    <input type="text" [formControl]="colonne">
+    
 </div>
-<button (click)="goBack()">go back</button>
