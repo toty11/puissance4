@@ -1,10 +1,12 @@
 .welcome{
     display: flex;
+    flex-direction: column;
+    margin-top: 110px;
 }
 
 .plateau-main {
     margin: 0 auto;
-    margin-top: 200px;
+    text-align:center;
 }
 
 .plateau {
@@ -17,6 +19,12 @@
     
     align-items: center;
 }
+
+.item {
+    margin: 0 auto;
+    text-align:center;
+}
+
 .jaune {
     background-color: yellow;
 }

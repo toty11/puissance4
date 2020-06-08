@@ -49,10 +49,10 @@ export class WelcomeComponent implements OnInit {
 
   //Ajoute à la variable localstorage players le nouveau joueur si il n'est pas présent
   ajouterJoueur(data): void{
-    var newUser = {id: data.identifiant, pseudo: data.pseudo, currentUser: '1'};
+    var newUser = {identifiant: data.identifiant, pseudo: data.pseudo, currentUser: '1'};
     var userNotFound = true;
     var users = JSON.parse(localStorage.getItem('users'));
-    users.forEach((user) => { if(user.id == newUser.id){
+    users.forEach((user) => { if(user.identifiant == newUser.identifiant){
       userNotFound = false;
     }});
 
