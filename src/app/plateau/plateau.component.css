@@ -1,7 +1,10 @@
 .welcome{
+    display: flex;
+}
+
+.plateau-main {
     margin: 0 auto;
     margin-top: 200px;
-    text-align: center;
 }
 
 .plateau {
@@ -14,7 +17,6 @@
     
     align-items: center;
 }
-
 .jaune {
     background-color: yellow;
 }
