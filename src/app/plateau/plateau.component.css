@@ -1,7 +1,7 @@
 .welcome{
     display: flex;
     flex-direction: column;
-    margin-top: 110px;
+    margin-top: 80px;
 }
 
 .plateau-main {
@@ -12,12 +12,13 @@
 .plateau {
     display: grid;
     width: 500px;
+    height: 500px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 10px;
+    grid-column-gap: 5px;
     grid-row-gap: 5px;
-    
-    align-items: center;
+    border-radius: 5px;
+    background-color: blue;
 }
 
 .item {
@@ -26,10 +27,14 @@
 }
 
 .jaune {
-    background-color: yellow;
+    fill: #ffd31d;
 }
 
 .rouge {
-    background-color: red;
+    fill: #d92027;
+}
+
+.blanc {
+    fill: white;
 }
 
