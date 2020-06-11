@@ -79,10 +79,11 @@ export class PlateauComponent implements OnInit {
       fetch(url)
       .then((response) => response.json())
       .then(function(data) {
-        console.log("JOUER");
-        console.log(data);
-        self.initPlateau();
+        if(data.etat.search("gagne") != -1){
+          this.subscription.unsubscribe();
+        }
         self.statut();
+        self.initPlateau();
       });
     }else{
       alert("Ce n'est pas votre tour");
@@ -97,8 +98,8 @@ export class PlateauComponent implements OnInit {
     .then((response) => response.json())
     .then(function(data) {
       self.subscription = self.everySecond.subscribe((seconds) => {
-        self.initPlateau();
         self.statut();
+        self.initPlateau();
       });
     });
   }
@@ -110,9 +111,6 @@ export class PlateauComponent implements OnInit {
     fetch(url)
     .then((response) => response.json())
     .then(function(data) {
-      console.log("STATUT");
-      console.log(data);
-      
       if(typeof(data.carte) == 'undefined'){
         self.display_plateau = false;
       }
@@ -122,8 +120,8 @@ export class PlateauComponent implements OnInit {
           self.initPlateau();
           self.display_plateau = true;
           self.subscription = self.everySecond.subscribe((seconds) => {
-            self.initPlateau();
             self.statut();
+            self.initPlateau();
           });
         }
         self.etat_partie = "Partie: en cours";
@@ -138,7 +136,6 @@ export class PlateauComponent implements OnInit {
       }else if(data.etat == "En attente"){
         self.etat_partie = data.etat+" d'un adversaire";
       }else if(data.etat.search("gagne") != -1){
-        this.subscription.unsubscribe();
         if(data.etat.search(data.joueur) != -1){
           self.etat_partie = "Aucune partie en cours";
           self.winner = "Vous avez gagné";
