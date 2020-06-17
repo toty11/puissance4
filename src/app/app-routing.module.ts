@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListeJoueurComponent } from './liste-joueur/liste-joueur.component';
+
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { PlateauComponent } from './plateau/plateau.component';
